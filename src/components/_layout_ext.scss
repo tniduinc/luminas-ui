@@ -1,0 +1,27 @@
+/* --- LAYOUT EXTENDED --- */
+
+.l-divider {
+    @apply flex items-center text-center text-gray-400 text-sm my-4;
+
+    &::before,
+    &::after {
+        content: '';
+        @apply flex-1 border-t border-gray-200;
+    }
+
+    span {
+        @apply px-2;
+    }
+}
+
+.l-hero {
+    @apply py-20 px-6 text-center bg-cover bg-center bg-fixed relative;
+
+    .l-hero-content {
+        @apply relative z-10 max-w-2xl mx-auto l-card p-8 bg-white/30;
+    }
+}
+
+.l-footer {
+    @apply w-full p-10 bg-white/80 backdrop-blur-xl border-t border-white/40 text-gray-600;
+}

@@ -1,0 +1,119 @@
+// Date Picker Component
+
+.l-datepicker {
+    position: relative;
+    display: inline-block;
+
+    .l-input-date {
+        cursor: pointer;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%2394a3b8'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z'%3E%3C/path%3E%3C/svg%3E");
+        background-repeat: no-repeat;
+        background-position: right 1rem center;
+        background-size: 1.25rem;
+    }
+
+    .l-datepicker-dropdown {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        margin-top: 0.5rem;
+        padding: 1.5rem;
+        border-radius: var(--rounded-2xl);
+        width: 320px;
+        z-index: 50;
+
+        // Darker glass for better contrast
+        backdrop-filter: blur(20px);
+        background: rgba(15, 23, 42, 0.9); // Dark Slate/Background
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(0.5rem);
+        transition: all 0.2s ease;
+
+        &.active {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+    }
+
+    // Header
+    .l-datepicker-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 1rem;
+
+        button {
+            padding: 0.5rem;
+            border-radius: 9999px;
+            transition: color 0.2s, background-color 0.2s;
+            color: rgba(255, 255, 255, 0.7);
+
+            &:hover {
+                background-color: rgba(255, 255, 255, 0.1);
+                color: #fff;
+            }
+        }
+
+        .l-current-month {
+            font-weight: 700;
+            color: #fff;
+        }
+    }
+
+    // Grid
+    .l-datepicker-grid {
+        display: grid;
+        grid-template-columns: repeat(7, 1fr);
+        gap: 0.25rem;
+        text-align: center;
+
+        .l-day-name {
+            font-size: 0.75rem;
+            font-weight: 500;
+            color: rgba(255, 255, 255, 0.4);
+            margin-bottom: 0.5rem;
+        }
+
+        .l-day {
+            width: 2rem;
+            height: 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 9999px;
+            font-size: 0.875rem;
+            cursor: pointer;
+            transition: all 0.2s;
+            color: rgba(255, 255, 255, 0.8);
+
+            &:hover {
+                background-color: rgba(255, 255, 255, 0.1);
+            }
+
+            &.selected {
+                background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+                color: white;
+                box-shadow: 0 0 15px rgba(139, 92, 246, 0.5);
+                font-weight: bold;
+            }
+
+            &.today {
+                border: 1px solid rgba(255, 255, 255, 0.3);
+            }
+
+            &.disabled {
+                opacity: 0.2;
+                cursor: not-allowed;
+
+                &:hover {
+                    background: transparent;
+                }
+            }
+        }
+    }
+}

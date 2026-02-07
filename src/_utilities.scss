@@ -1,0 +1,240 @@
+// Advanced Utilities & Missing Features
+
+// --- Advanced Glassmorphism ---
+.glass-heavy {
+    @apply backdrop-blur-xl bg-white/20 border border-white/30 shadow-lg;
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+}
+
+.glass-light {
+    @apply backdrop-blur-md bg-white/10 border border-white/20 shadow-sm;
+}
+
+.glass-card-hover {
+    @apply transition-all duration-300 ease-out;
+
+    &:hover {
+        @apply transform -translate-y-1 shadow-xl bg-white/30 border-white/50;
+        box-shadow: 0 10px 40px -10px rgba(0, 0, 0, 0.1);
+    }
+}
+
+// --- Gradient Text & Borders ---
+.text-gradient-primary {
+    background: linear-gradient(135deg, var(--color-primary), var(--color-secondary), var(--color-accent));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    background-size: 200% auto;
+    animation: shine 5s linear infinite; // Subtle movement
+}
+
+.border-gradient {
+    position: relative;
+    background: var(--color-surface);
+    background-clip: padding-box;
+    border: 2px solid transparent;
+    border-radius: var(--rounded-xl);
+
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        margin: -2px;
+        border-radius: inherit;
+        background: linear-gradient(to right, var(--color-primary), var(--color-secondary));
+        z-index: -1;
+    }
+}
+
+// --- Buttons with Gradient Animation ---
+.l-btn-gradient-anim {
+    background: linear-gradient(90deg, var(--color-primary), var(--color-secondary), var(--color-accent), var(--color-primary));
+    background-size: 300% 100%;
+    color: white;
+    border: none;
+    transition: all 0.3s ease;
+    animation: btn-gradient-flow 4s ease infinite;
+
+    &:hover {
+        background-size: 200% 100%; // Speed up visual perception or shift
+        box-shadow: 0 0 20px var(--color-primary);
+    }
+}
+
+@keyframes btn-gradient-flow {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+
+// --- Neumorphism / Soft UI (Subtle) ---
+.neumorphic {
+    background: var(--color-surface);
+    box-shadow: 20px 20px 60px #bebebe, -20px -20px 60px #ffffff;
+    border-radius: var(--rounded-3xl);
+}
+
+.neumorphic-inset {
+    background: var(--color-surface);
+    box-shadow: inset 20px 20px 60px #bebebe, inset -20px -20px 60px #ffffff;
+    border-radius: var(--rounded-xl);
+}
+
+// --- Animations ---
+@keyframes float {
+    0% {
+        transform: translateY(0px);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+
+    100% {
+        transform: translateY(0px);
+    }
+}
+
+.animate-float {
+    animation: float 6s ease-in-out infinite;
+}
+
+@keyframes shine {
+    to {
+        background-position: 200% center;
+    }
+}
+
+.animate-shine {
+    background: linear-gradient(to right,
+            rgba(255, 255, 255, 0) 0%,
+            rgba(255, 255, 255, 0.4) 50%,
+            rgba(255, 255, 255, 0) 100%);
+    background-size: 200% auto;
+    animation: shine 3s linear infinite;
+}
+
+@keyframes hue-cycle {
+    0% {
+        filter: hue-rotate(0deg);
+    }
+
+    100% {
+        filter: hue-rotate(360deg);
+    }
+}
+
+.animate-hue {
+    animation: hue-cycle 10s linear infinite;
+}
+
+// Super vibrant gradient button with color shifting
+.l-btn-alive {
+    background: linear-gradient(120deg, var(--color-primary), var(--color-secondary), var(--color-accent));
+    background-size: 200% 200%;
+    color: white;
+    border: none;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    animation: btn-gradient-flow 3s ease infinite; // Removed hue-cycle to keep strict brand colors
+
+    &:hover {
+        box-shadow: 0 0 30px var(--color-primary);
+        transform: translateY(-2px);
+    }
+}
+
+// Creative "Spotlight" Button
+.l-btn-spotlight {
+    position: relative;
+    // Merge the vibrant gradient from .l-btn-alive here
+    background: linear-gradient(120deg, var(--color-primary), var(--color-secondary), var(--color-accent));
+    background-size: 200% 200%;
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    overflow: hidden;
+    transition: all 0.3s ease;
+    z-index: 1;
+    animation: btn-gradient-flow 3s ease infinite;
+
+    // The glowing spotlight overlay (needs to be lighter/white to show on top of vivid colors)
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: radial-gradient(circle at var(--x, 50%) var(--y, 50%),
+                rgba(255, 255, 255, 0.4) 0%,
+                transparent 50%);
+        opacity: 0;
+        transition: opacity 0.3s ease;
+        z-index: 2; // Above the background
+        pointer-events: none;
+    }
+
+    &:hover {
+        box-shadow: 0 0 30px var(--color-primary);
+        transform: translateY(-2px);
+
+        &::before {
+            opacity: 1;
+        }
+    }
+
+    // Add a nice inner shine border effect
+    &::after {
+        content: '';
+        position: absolute;
+        inset: 0;
+        border-radius: inherit;
+        border: 1px solid transparent;
+        background: radial-gradient(circle at var(--x, 50%) var(--y, 50%),
+                var(--color-secondary),
+                transparent 40%) border-box;
+        -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+        -webkit-mask-composite: xor;
+        mask-composite: exclude;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+    }
+
+    &:hover::after {
+        opacity: 1;
+    }
+}
+
+// --- Utility Classes for Layout (Helpers) ---
+.flex-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.absolute-center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.full-screen-glass {
+    @apply fixed inset-0 z-50 flex items-center justify-center;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+}

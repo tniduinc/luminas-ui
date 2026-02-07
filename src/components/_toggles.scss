@@ -1,0 +1,30 @@
+.l-toggle {
+    @apply relative inline-flex items-center cursor-pointer;
+
+    input {
+        @apply sr-only;
+    }
+
+    .l-toggle-track {
+        @apply w-12 h-7 bg-gray-200 rounded-full peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-[#3B82F6]/30 transition-all duration-300;
+        transition-timing-function: cubic-bezier(0.23, 1, 0.32, 1);
+        background: rgba(0, 0, 0, 0.05);
+        border: 1px solid rgba(255, 255, 255, 0.5);
+        box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.05);
+    }
+
+    input:checked~.l-toggle-track {
+        @apply bg-gradient-to-r from-[#8B5CF6] to-[#3B82F6] border-transparent;
+        box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .l-toggle-thumb {
+        @apply absolute left-[3px] top-[3px] bg-white border border-gray-100 rounded-full h-[22px] w-[22px] transition-all duration-300 shadow-sm;
+        transition-timing-function: cubic-bezier(0.23, 1, 0.32, 1);
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    input:checked~.l-toggle-thumb {
+        @apply translate-x-5 border-white;
+    }
+}

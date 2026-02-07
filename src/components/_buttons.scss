@@ -1,0 +1,17 @@
+.l-btn {
+    @apply inline-flex items-center justify-center px-6 py-3 rounded-xl font-bold text-sm transition-all duration-200 cursor-pointer border border-transparent active:scale-95 outline-none focus-visible:ring-4 focus-visible:ring-[#3B82F6]/30;
+}
+
+.l-btn-primary {
+    @apply bg-gradient-to-r from-[#8B5CF6] via-[#3B82F6] to-[#F59E0B] text-white shadow-lg shadow-blue-500/20 hover:brightness-110 border-none;
+}
+
+.l-btn-glass {
+    background: rgba(255, 255, 255, 0.5);
+    border: var(--glass-border);
+    @apply text-gray-600 hover:bg-white/80 hover:text-black;
+}
+
+.l-btn-ghost {
+    @apply bg-transparent text-gray-500 hover:bg-black/5 hover:text-black;
+}

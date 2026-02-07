@@ -1,0 +1,20 @@
+# Dependencies
+node_modules/
+
+# Build outputs
+/dist/luminas.raw.css
+/luminas-ui-*.tgz
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Environment/Local
+.env
+.npmrc
+
+# Development logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.eslintcache

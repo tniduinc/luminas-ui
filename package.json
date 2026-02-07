@@ -1,0 +1,35 @@
+{
+    "name": "luminas-ui",
+    "version": "1.0.0",
+    "description": "The Glass Framework for TNIDU Inc.",
+    "main": "dist/luminas.js",
+    "style": "dist/luminas.css",
+    "files": [
+        "dist",
+        "src"
+    ],
+    "scripts": {
+        "generate-config": "node scripts/generate-config.js",
+        "build:sass": "sass src/styles.scss dist/luminas.raw.css",
+        "build:tailwind": "npx tailwindcss -i dist/luminas.raw.css -o dist/luminas.css --minify",
+        "build:js": "esbuild src/js/index.js --bundle --minify --outfile=dist/luminas.js --loader:.css=text",
+        "build": "npm run generate-config && npm run build:sass && npm run build:tailwind && npm run build:js",
+        "watch": "npm run build -- --watch"
+    },
+    "keywords": [
+        "ui",
+        "framework",
+        "tailwind",
+        "glassmorphism"
+    ],
+    "author": "GhostTNIDU",
+    "license": "ISC",
+    "devDependencies": {
+        "autoprefixer": "^10.4.16",
+        "esbuild": "^0.27.2",
+        "gsap": "^3.14.2",
+        "postcss": "^8.4.31",
+        "sass": "^1.69.5",
+        "tailwindcss": "^3.3.5"
+    }
+}

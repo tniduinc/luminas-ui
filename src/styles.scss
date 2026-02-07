@@ -1,0 +1,32 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+// Configuration and Variables
+@import "config";
+@import "generated_config"; // Auto-generated from luminas.config.js
+@import "utilities"; // Advanced custom utilities
+
+// Layout & Core
+@import "components/layout";
+
+// Components
+@import "components/cards";
+@import "components/buttons";
+@import "components/inputs";
+@import "components/badges";
+@import "components/alerts";
+@import "components/avatars";
+@import "components/toggles";
+@import "components/progress";
+@import "components/modals";
+@import "components/tables";
+@import "components/spinners";
+@import "components/navigation";
+@import "components/forms_ext";
+@import "components/feedback";
+@import "components/data_display";
+@import "components/layout_ext";
+@import "components/datepicker";
+@import "components/timepicker";

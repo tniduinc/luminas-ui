@@ -1,0 +1,96 @@
+/* --- NAVIGATION --- */
+
+.l-navbar {
+    background: var(--glass-bg);
+    backdrop-filter: blur(16px);
+    border-bottom: var(--glass-border);
+    @apply sticky top-0 z-40 w-full px-4 py-3 flex items-center justify-between;
+}
+
+.l-breadcrumbs {
+    @apply flex items-center text-sm text-gray-500;
+
+    a {
+        @apply hover:text-[#3B82F6] transition-colors;
+    }
+
+    .separator {
+        @apply mx-2 opacity-50;
+    }
+}
+
+.l-pagination {
+    @apply flex gap-2;
+
+    .l-btn {
+        @apply px-3 py-2 text-sm;
+    }
+
+    .active {
+        @apply bg-gradient-to-r from-[#8B5CF6] to-[#3B82F6] text-white border-transparent;
+    }
+}
+
+.l-tabs {
+    @apply flex border-b border-gray-200/50;
+
+    .l-tab {
+        @apply px-4 py-2 text-sm font-medium text-gray-500 hover:text-gray-700 border-b-2 border-transparent hover:border-gray-300 transition-all cursor-pointer;
+
+        &.active {
+            @apply text-[#3B82F6] border-[#3B82F6];
+        }
+    }
+}
+
+.l-steps {
+    @apply flex items-center w-full;
+
+    .l-step {
+        @apply flex-1 border-t-2 border-gray-200 relative mt-4;
+
+        &::before {
+            content: attr(data-content);
+            @apply absolute -top-4 left-0 -ml-2 w-8 h-8 rounded-full bg-gray-100 flex items-center justify-center text-xs font-bold text-gray-500 border-2 border-white;
+        }
+
+        &.l-step-primary {
+            @apply border-[#3B82F6];
+
+            &::before {
+                @apply bg-[#3B82F6] text-white;
+            }
+        }
+    }
+}
+
+.l-dropdown {
+    @apply relative inline-block text-left;
+
+    .l-dropdown-content {
+        @apply absolute right-0 mt-2 w-56 origin-top-right divide-y divide-gray-50 rounded-xl bg-white/95 backdrop-blur-2xl shadow-2xl ring-1 ring-black/5 focus:outline-none opacity-0 invisible transform scale-95 transition-all duration-200 z-50;
+        transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+        border: 1px solid rgba(255, 255, 255, 0.8);
+    }
+
+    &:hover .l-dropdown-content,
+    &:focus-within .l-dropdown-content {
+        @apply opacity-100 visible scale-100 translate-y-0;
+    }
+
+    a {
+        @apply text-gray-700 block px-4 py-2.5 text-sm hover:bg-gray-50/80 hover:text-[#3B82F6] first:rounded-t-xl last:rounded-b-xl transition-colors;
+    }
+}
+
+.l-drawer-overlay {
+    @apply fixed inset-0 z-40 bg-black/20 backdrop-blur-sm hidden;
+
+    &:checked+.l-drawer-side {
+        @apply transform-none;
+    }
+}
+
+.l-drawer-side {
+    @apply fixed inset-y-0 left-0 z-50 w-80 bg-white/80 backdrop-blur-2xl shadow-2xl transform -translate-x-full transition-transform duration-300 ease-in-out border-r border-white/40;
+}

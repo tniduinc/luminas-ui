@@ -1,0 +1,37 @@
+/* --- FORMS EXTENDED --- */
+
+.l-textarea {
+    @apply l-input min-h-[100px] align-top;
+}
+
+.l-select {
+    @apply l-input appearance-none bg-no-repeat pr-10;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%236B7280'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'%3E%3C/path%3E%3C/svg%3E");
+    background-position: right 1rem center;
+    background-repeat: no-repeat;
+    background-size: 1.5em 1.5em;
+}
+
+.l-checkbox {
+    @apply rounded h-4 w-4 border-gray-300 text-blue-600 focus:ring-blue-500 bg-white/50 backdrop-blur-sm;
+}
+
+.l-radio {
+    @apply h-4 w-4 border-gray-300 text-blue-600 focus:ring-blue-500 bg-white/50 backdrop-blur-sm;
+}
+
+.l-range {
+    @apply w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer;
+
+    &::-webkit-slider-thumb {
+        @apply appearance-none w-4 h-4 rounded-full bg-blue-600 cursor-pointer shadow-sm;
+    }
+}
+
+.l-file-input {
+    @apply block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100 cursor-pointer;
+    border: var(--glass-border);
+    background: var(--glass-bg);
+    border-radius: 9999px;
+    padding: 2px;
+}

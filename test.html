@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Luminas UI - The Glass Framework</title>
+    <!-- Use the bundled JS which injects the CSS -->
+    <script src="dist/luminas.js"></script>
+    <style>
+        /* Custom layout tweaks for the demo */
+        body {
+            background-color: #0f172a;
+            /* Dark theme base for better glass contrast */
+            color: #f8fafc;
+            overflow-x: hidden;
+        }
+
+        .blob {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(80px);
+            z-index: -1;
+            opacity: 0.6;
+        }
+
+        .blob-1 {
+            top: -10%;
+            left: -10%;
+            width: 500px;
+            height: 500px;
+            background: var(--color-primary);
+        }
+
+        .blob-2 {
+            bottom: -10%;
+            right: -10%;
+            width: 600px;
+            height: 600px;
+            background: var(--color-secondary);
+        }
+
+        .blob-3 {
+            top: 40%;
+            left: 40%;
+            width: 400px;
+            height: 400px;
+            background: var(--color-accent);
+        }
+    </style>
+</head>
+
+<body class="font-sans antialiased selection:bg-pink-500 selection:text-white">
+
+    <!-- Ambient Background Blobs -->
+    <div class="blob blob-1 animate-blob"></div>
+    <div class="blob blob-2 animate-blob" style="animation-delay: -5s;"></div>
+    <div class="blob blob-3 animate-blob" style="animation-delay: -10s;"></div>
+
+    <!-- Use noise overlay from config if available, otherwise manual -->
+    <div class="fixed inset-0 pointer-events-none opacity-[0.03]"
+        style="background-image: url('data:image/svg+xml,%3Csvg viewBox=\'0 0 200 200\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cfilter id=\'noiseFilter\'%3E%3CfeTurbulence type=\'fractalNoise\' baseFrequency=\'0.65\' numOctaves=\'3\' stitchTiles=\'stitch\'/%3E%3C/filter%3E%3Crect width=\'100%25\' height=\'100%25\' filter=\'url(%23noiseFilter)\' opacity=\'1\'/%3E%3C/svg%3E');">
+    </div>
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 left-0 right-0 z-50 p-6">
+        <div
+            class="glass-panel max-w-7xl mx-auto rounded-2xl px-8 py-4 flex justify-between items-center border border-white/10">
+            <div class="text-2xl font-bold tracking-tighter">
+                Luminas<span class="text-gradient-primary">UI</span>
+            </div>
+            <div class="hidden md:flex gap-8 font-medium text-white/80">
+                <a href="#features" class="hover:text-white transition-colors">Features</a>
+                <a href="#components" class="hover:text-white transition-colors">Components</a>
+                <a href="#docs" class="hover:text-white transition-colors">Documentation</a>
+            </div>
+            <button
+                class="l-btn-primary bg-white/10 hover:bg-white/20 text-white px-6 py-2 rounded-full border border-white/20 backdrop-blur-md transition-all">
+                Get Started
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden">
+        <div class="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-12 items-center">
+
+            <!-- Hero Text -->
+            <div class="space-y-8 z-10">
+                <div
+                    class="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-light border border-white/10 text-sm font-medium text-pink-300 gsap-hero-text">
+                    <span class="relative flex h-2 w-2">
+                        <span
+                            class="animate-ping absolute inline-flex h-full w-full rounded-full bg-pink-400 opacity-75"></span>
+                        <span class="relative inline-flex rounded-full h-2 w-2 bg-pink-500"></span>
+                    </span>
+                    v1.0 is now available
+                </div>
+
+                <h1 class="text-6xl md:text-8xl font-bold leading-tight tracking-tight gsap-hero-text">
+                    Design with <br>
+                    <span class="text-gradient-primary">Clarity</span>
+                </h1>
+
+                <p class="text-xl text-white/60 max-w-lg leading-relaxed gsap-hero-text">
+                    A next-generation UI framework built for the modern web.
+                    Glassmorphism, advanced animations, and a utility-first approach.
+                </p>
+
+                <div class="flex gap-4 pt-4 gsap-hero-text">
+                    <button
+                        class="l-btn-primary px-8 py-4 bg-blue-600 hover:bg-blue-500 text-white rounded-xl font-semibold shadow-lg shadow-blue-500/30 transition-all transform hover:-translate-y-1">
+                        Start Building
+                    </button>
+                    <button
+                        class="px-8 py-4 glass-light hover:bg-white/10 text-white rounded-xl font-semibold border border-white/10 transition-all">
+                        View Components
+                    </button>
+                </div>
+            </div>
+
+            <!-- Hero Visual (3D Stack) -->
+            <div class="relative items-center justify-center hidden lg:flex gsap-hero-stack perspective-1000">
+                <div class="relative w-96 h-96">
+                    <!-- Base Card -->
+                    <div
+                        class="absolute inset-0 glass-heavy rounded-3xl border border-white/20 transform rotate-[-6deg] translate-y-4 z-10">
+                    </div>
+                    <!-- Middle Card -->
+                    <div
+                        class="absolute inset-0 glass-heavy rounded-3xl border border-white/20 transform rotate-[6deg] translate-x-4 z-20 bg-gradient-to-br from-white/10 to-transparent">
+                    </div>
+                    <!-- Top Card -->
+                    <div
+                        class="absolute inset-0 glass-heavy rounded-3xl border border-white/30 shadow-2xl z-30 flex flex-col p-8 justify-between backdrop-blur-3xl">
+                        <div class="flex justify-between items-center">
+                            <div
+                                class="w-12 h-12 rounded-full bg-blue-500/20 flex items-center justify-center text-blue-400">
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                                </svg>
+                            </div>
+                            <div class="px-3 py-1 rounded-full bg-white/10 text-xs font-mono">LUMINAS</div>
+                        </div>
+                        <div class="space-y-4">
+                            <div class="h-4 w-2/3 bg-white/10 rounded"></div>
+                            <div class="h-4 w-1/2 bg-white/10 rounded"></div>
+                        </div>
+                        <div class="mt-8 pt-8 border-t border-white/10 flex justify-between items-end">
+                            <div>
+                                <div class="text-sm text-white/40">Efficiency</div>
+                                <div class="text-2xl font-bold">+124%</div>
+                            </div>
+                            <div class="h-10 w-24 bg-gradient-to-r from-blue-500 to-purple-500 rounded-lg"></div>
+                        </div>
+                    </div>
+
+                    <!-- Floating Badge -->
+                    <div
+                        class="absolute -right-12 top-1/2 glass-light p-4 rounded-xl border border-white/20 shadow-xl animate-float z-40">
+                        <div class="flex items-center gap-3">
+                            <div class="w-2 h-2 rounded-full bg-green-400"></div>
+                            <span class="text-sm font-medium">System Active</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Features Grid -->
+    <section id="features" class="py-32 relative z-10">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="mb-20 text-center max-w-3xl mx-auto gsap-reveal">
+                <h2 class="text-4xl md:text-5xl font-bold mb-6">Built for <span
+                        class="text-gradient-primary">Performance</span></h2>
+                <p class="text-lg text-white/60">
+                    Everything you need to build stunning, modern interfaces.
+                    Fully customizable via config.lui.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8 gsap-stagger-grid">
+                <!-- Feature 1 -->
+                <div
+                    class="glass-panel p-8 rounded-3xl border border-white/5 hover:border-white/20 transition-all duration-500 group">
+                    <div
+                        class="w-14 h-14 rounded-2xl bg-blue-500/10 flex items-center justify-center mb-6 group-hover:bg-blue-500/20 transition-colors">
+                        <svg class="w-7 h-7 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4">
+                            </path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Config-Driven</h3>
+                    <p class="text-white/50 leading-relaxed">
+                        Define your design tokens in `luminas.config.js` and let the engine generate your system.
+                    </p>
+                </div>
+
+                <!-- Feature 2 -->
+                <div
+                    class="glass-panel p-8 rounded-3xl border border-white/5 hover:border-white/20 transition-all duration-500 group">
+                    <div
+                        class="w-14 h-14 rounded-2xl bg-purple-500/10 flex items-center justify-center mb-6 group-hover:bg-purple-500/20 transition-colors">
+                        <svg class="w-7 h-7 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M19.428 15.428a2 2 0 00-1.022-.547l-2.384-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z">
+                            </path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Glassmorphism</h3>
+                    <p class="text-white/50 leading-relaxed">
+                        Industry-leading glass effects out of the box. Blur, saturation, and noise textures.
+                    </p>
+                </div>
+
+                <!-- Feature 3 -->
+                <div
+                    class="glass-panel p-8 rounded-3xl border border-white/5 hover:border-white/20 transition-all duration-500 group">
+                    <div
+                        class="w-14 h-14 rounded-2xl bg-pink-500/10 flex items-center justify-center mb-6 group-hover:bg-pink-500/20 transition-colors">
+                        <svg class="w-7 h-7 text-pink-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Performance</h3>
+                    <p class="text-white/50 leading-relaxed">
+                        Optimized for speed. Zero-runtime overhead for the core styling engine.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Showcase Section -->
+    <section class="py-20 relative z-10">
+        <div class="max-w-7xl mx-auto px-6">
+            <div
+                class="glass-heavy rounded-3xl p-12 border border-white/10 flex flex-col md:flex-row items-center gap-12 gsap-reveal">
+                <div class="flex-1 space-y-6">
+                    <h2 class="text-3xl font-bold">Ready for Production</h2>
+                    <p class="text-white/60">
+                        Join thousands of developers building the future of the web with Luminas.
+                        Integrates seamlessly with your existing stack.
+                    </p>
+                    <div class="flex items-center gap-4 pt-4">
+                        <div class="flex -space-x-3">
+                            <div class="w-10 h-10 rounded-full border-2 border-white/20 bg-gray-600"></div>
+                            <div class="w-10 h-10 rounded-full border-2 border-white/20 bg-gray-500"></div>
+                            <div class="w-10 h-10 rounded-full border-2 border-white/20 bg-gray-400"></div>
+                        </div>
+                        <span class="text-sm font-medium text-white/50">+2k active users</span>
+                    </div>
+                </div>
+                <div class="flex-1 w-full">
+                    <div class="bg-gray-900 rounded-xl p-6 font-mono text-sm border border-white/10 shadow-2xl">
+                        <div class="flex gap-2 mb-4">
+                            <div class="w-3 h-3 rounded-full bg-red-500"></div>
+                            <div class="w-3 h-3 rounded-full bg-yellow-500"></div>
+                            <div class="w-3 h-3 rounded-full bg-green-500"></div>
+                        </div>
+                        <div class="space-y-2">
+                            <p><span class="text-purple-400">import</span> { Luminas } <span
+                                    class="text-purple-400">from</span> <span
+                                    class="text-green-400">'luminas-ui'</span>;</p>
+                            <p class="text-gray-500">// Initialize the glass engine</p>
+                            <p><span class="text-blue-400">const</span> app = <span class="text-yellow-400">new</span>
+                                Luminas({</p>
+                            <p class="pl-4">theme: <span class="text-green-400">'dark'</span>,</p>
+                            <p class="pl-4">glass: <span class="text-blue-400">true</span></p>
+                            <p>});</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="py-12 text-center text-white/30 text-sm relative z-10">
+        <p>&copy; 2026 Luminas UI. All rights reserved.</p>
+    </footer>
+
+</body>
+
+</html>

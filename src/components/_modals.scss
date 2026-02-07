@@ -1,0 +1,33 @@
+.l-modal-backdrop {
+    @apply fixed inset-0 z-50 flex items-center justify-center p-4 transition-all duration-300;
+    background: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(8px);
+    opacity: 0;
+    pointer-events: none;
+
+    &.open {
+        opacity: 1;
+        pointer-events: auto;
+    }
+}
+
+.l-modal {
+    @apply relative w-full max-w-lg overflow-hidden rounded-2xl p-6 text-left shadow-2xl transform transition-all duration-300;
+    transition-timing-function: cubic-bezier(0.34, 1.56, 0.64, 1);
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(24px);
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    box-shadow:
+        0 25px 50px -12px rgba(0, 0, 0, 0.25),
+        0 0 0 1px rgba(255, 255, 255, 0.5) inset;
+
+    // Initial state (closed)
+    opacity: 0;
+    transform: scale(0.95) translateY(10px);
+
+    // Open state (handled by JS toggling class or checked state)
+    .open & {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}

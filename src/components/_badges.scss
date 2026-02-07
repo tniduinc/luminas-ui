@@ -1,0 +1,15 @@
+.l-badge {
+    @apply inline-flex items-center px-3 py-1 rounded-full text-xs font-bold border border-transparent;
+}
+
+.l-badge-success {
+    @apply bg-green-100 text-green-700 border-green-200;
+}
+
+.l-badge-warning {
+    @apply bg-yellow-100 text-yellow-700 border-yellow-200;
+}
+
+.l-badge-info {
+    @apply bg-blue-100 text-blue-700 border-blue-200;
+}
