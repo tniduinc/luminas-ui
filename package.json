@@ -1,6 +1,6 @@
 {
     "name": "luminas-ui",
-    "version": "1.0.0",
+    "version": "1.0.2",
     "description": "The Glass Framework for TNIDU Inc.",
     "main": "dist/luminas.js",
     "style": "dist/luminas.css",
@@ -8,6 +8,10 @@
         "dist",
         "src"
     ],
+    "exports": {
+        ".": "./dist/luminas.js",
+        "./style": "./dist/luminas.css"
+    },
     "scripts": {
         "generate-config": "node scripts/generate-config.js",
         "build:sass": "sass src/styles.scss dist/luminas.raw.css",

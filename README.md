@@ -36,18 +36,25 @@ npm install /path/to/luminas-ui
 
 ## 🛠️ Quick Start
 
-### 1. Import Styles and Logic
-In your main entry file (e.g., `index.js`, `App.js`, or `main.ts`):
+### 1. Single Import (Recommended)
+You can import the entire framework (Styles + Logic) with a single line. This will automatically inject the CSS and initialize interactive components.
 
 ```javascript
-// Import the core styles (includes Tailwind & custom Luminas components)
+import 'luminas-ui';
+```
+
+### 2. Manual Import (Advanced)
+If you prefer to separate styles and logic or use a custom build process:
+
+```javascript
+// Import specific CSS file
 import 'luminas-ui/dist/luminas.css';
 
-// Import JS for interactive components (Pickers, Spotlight, etc.)
+// Import JS logic only (interactive components)
 import 'luminas-ui/dist/luminas.js';
 ```
 
-### 2. Basic Usage
+### 3. Usage
 
 #### **The Spotlight Button**
 A button that follows your mouse with a glowing spotlight effect.
