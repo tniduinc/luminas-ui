@@ -4,7 +4,11 @@
 [![License: ISC](https://img.shields.io/badge/License-ISC-3b82f6.svg?style=flat-square)](https://opensource.org/licenses/ISC)
 [![Framework: Tailwind](https://img.shields.io/badge/Framework-Tailwind-f59e0b.svg?style=flat-square)](https://tailwindcss.com)
 
-**Luminas UI** is a premium, high-performance UI library designed for visionaries. It merges ethereal **Glassmorphism** aesthetics with rock-solid utility, powered by Tailwind CSS and custom SCSS engines.
+**Luminas UI** is a premium, high-performance UI library designed for visionaries.
+
+> *"Normal is boring. Beauty is crazy."*
+
+It merges ethereal **Glassmorphism** aesthetics with rock-solid utility, powered by Tailwind CSS and custom SCSS engines.
 
 [**🌐 Visit the Showcase**](https://lab.tnidu.com/luminas)
 

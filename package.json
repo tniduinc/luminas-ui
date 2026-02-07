@@ -1,7 +1,7 @@
 {
     "name": "luminas-ui",
     "version": "1.0.2",
-    "description": "The Glass Framework for TNIDU Inc.",
+    "description": "Normal is boring. Beauty is crazy. The Glass Framework for TNIDU Inc.",
     "homepage": "https://lab.tnidu.com/luminas",
     "main": "dist/luminas.js",
     "style": "dist/luminas.css",
