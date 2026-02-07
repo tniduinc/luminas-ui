@@ -6,6 +6,8 @@
 
 **Luminas UI** is a premium, high-performance UI library designed for visionaries. It merges ethereal **Glassmorphism** aesthetics with rock-solid utility, powered by Tailwind CSS and custom SCSS engines.
 
+[**🌐 Visit the Showcase**](https://lab.tnidu.com/luminas)
+
 ---
 
 ## 🚀 Key Features
