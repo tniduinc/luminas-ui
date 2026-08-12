@@ -1,27 +1,36 @@
-/* --- LAYOUT EXTENDED --- */
+// Extended Layout Components
+
+.l-sidebar {
+    @apply fixed left-0 top-0 h-screen w-64 glass-heavy border-r border-white/10 p-4 transition-transform duration-300;
+    background: rgba(15, 23, 42, 0.95);
+    z-index: 30;
+}
+
+.l-sidebar.closed {
+    @apply -translate-x-full;
+}
+
+.l-main {
+    @apply transition-all duration-300;
+    margin-left: 0;
+}
+
+.l-main.with-sidebar {
+    @apply ml-64;
+}
+
+.l-section {
+    @apply py-12 px-6;
+}
+
+.l-section-title {
+    @apply text-3xl font-bold mb-6 text-white;
+}
+
+.l-section-subtitle {
+    @apply text-lg text-white/60 mb-4;
+}
 
 .l-divider {
-    @apply flex items-center text-center text-gray-400 text-sm my-4;
-
-    &::before,
-    &::after {
-        content: '';
-        @apply flex-1 border-t border-gray-200;
-    }
-
-    span {
-        @apply px-2;
-    }
-}
-
-.l-hero {
-    @apply py-20 px-6 text-center bg-cover bg-center bg-fixed relative;
-
-    .l-hero-content {
-        @apply relative z-10 max-w-2xl mx-auto l-card p-8 bg-white/30;
-    }
-}
-
-.l-footer {
-    @apply w-full p-10 bg-white/80 backdrop-blur-xl border-t border-white/40 text-gray-600;
+    @apply h-px bg-gradient-to-r from-transparent via-white/20 to-transparent my-6;
 }

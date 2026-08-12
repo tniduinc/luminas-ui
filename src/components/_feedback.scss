@@ -1,26 +1,33 @@
-/* --- FEEDBACK --- */
+// Feedback Components (Toasts, Notifications)
 
 .l-toast {
-    @apply fixed bottom-4 right-4 z-50 flex items-center w-full max-w-xs p-4 rounded-lg shadow-lg bg-white/80 backdrop-blur-lg border border-white/40 text-gray-500;
+    @apply fixed z-50 flex items-start gap-3 p-4 rounded-lg backdrop-blur-md border border-white/20 animate-slide-in;
+    background: rgba(15, 23, 42, 0.9);
 }
 
-.l-tooltip {
-    @apply relative inline-block;
-
-    &::before {
-        content: attr(data-tip);
-        @apply absolute -top-8 left-1/2 -translate-x-1/2 px-2 py-1 text-xs font-medium text-white bg-gray-900 rounded opacity-0 transition-opacity duration-200 pointer-events-none whitespace-nowrap;
-    }
-
-    &:hover::before {
-        @apply opacity-100;
-    }
+.l-toast-success {
+    @apply border-green-500/30 text-green-300;
 }
 
-.l-skeleton {
-    @apply animate-pulse bg-gray-200 rounded;
+.l-toast-error {
+    @apply border-red-500/30 text-red-300;
+}
 
-    &.circle {
-        @apply rounded-full;
+.l-toast-warning {
+    @apply border-yellow-500/30 text-yellow-300;
+}
+
+.l-toast-info {
+    @apply border-blue-500/30 text-blue-300;
+}
+
+@keyframes slide-in {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
     }
 }

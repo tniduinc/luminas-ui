@@ -1,10 +1,22 @@
-.l-progress {
-    @apply w-full bg-gray-200 rounded-full h-2.5 overflow-hidden;
-    background: rgba(255, 255, 255, 0.4);
-    border: var(--glass-border);
+// Progress Components
 
-    .l-progress-bar {
-        @apply h-2.5 rounded-full transition-all duration-500 ease-out;
-        background: linear-gradient(90deg, #8B5CF6 0%, #3B82F6 50%, #F59E0B 100%);
+.l-progress {
+    @apply w-full h-2 bg-white/10 rounded-full overflow-hidden border border-white/20;
+}
+
+.l-progress-bar {
+    @apply h-full bg-gradient-to-r from-blue-500 to-purple-500 transition-all duration-300;
+}
+
+.l-progress-animated .l-progress-bar {
+    animation: progress-flow 2s ease-in-out infinite;
+}
+
+@keyframes progress-flow {
+    0%, 100% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
     }
 }

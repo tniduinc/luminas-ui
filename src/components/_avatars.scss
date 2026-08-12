@@ -1,47 +1,21 @@
+// Avatar Components
+
 .l-avatar {
-    @apply relative inline-block;
+    @apply inline-flex items-center justify-center rounded-full bg-gradient-to-br from-blue-400 to-purple-600 text-white font-bold text-sm;
+}
 
-    img {
-        @apply object-cover rounded-full border border-white/20 shadow-sm;
-    }
+.l-avatar-sm {
+    @apply h-8 w-8;
+}
 
-    &.l-avatar-sm img {
-        @apply w-8 h-8;
-    }
+.l-avatar-md {
+    @apply h-10 w-10;
+}
 
-    &.l-avatar-md img {
-        @apply w-12 h-12;
-    }
+.l-avatar-lg {
+    @apply h-12 w-12;
+}
 
-    &.l-avatar-lg img {
-        @apply w-16 h-16;
-    }
-
-    .l-avatar-status {
-        @apply absolute bottom-0 right-0 block rounded-full ring-2 ring-white;
-
-        &.online {
-            @apply bg-green-500;
-        }
-
-        &.busy {
-            @apply bg-red-500;
-        }
-
-        &.offline {
-            @apply bg-gray-400;
-        }
-    }
-
-    &.l-avatar-sm .l-avatar-status {
-        @apply w-2 h-2;
-    }
-
-    &.l-avatar-md .l-avatar-status {
-        @apply w-3 h-3;
-    }
-
-    &.l-avatar-lg .l-avatar-status {
-        @apply w-4 h-4;
-    }
+.l-avatar img {
+    @apply w-full h-full object-cover rounded-full;
 }

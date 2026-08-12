@@ -1,23 +1,17 @@
-.l-ambient {
-    @apply fixed inset-0 -z-10 pointer-events-none overflow-hidden;
+// Layout Components
+
+.l-container {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
 }
 
-.l-blob {
-    @apply absolute rounded-full blur-[80px] opacity-60;
-    animation: float 10s infinite ease-in-out alternate;
+.l-grid {
+    @apply grid gap-6;
 }
 
-.l-noise {
-    @apply absolute inset-0 opacity-100;
-    background: var(--noise-url);
+.l-flex {
+    @apply flex;
 }
 
-@keyframes float {
-    0% {
-        transform: translate(0, 0) scale(1);
-    }
-
-    100% {
-        transform: translate(20px, -20px) scale(1.1);
-    }
+.l-stack {
+    @apply flex flex-col gap-4;
 }
